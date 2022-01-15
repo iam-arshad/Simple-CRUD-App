@@ -2,6 +2,7 @@
 var data=[];
 var myForm = document.querySelector('#input-form');
 var table = document.querySelector('table');
+myForm.classList.toggle('edit-mode');
 
 // add event listener to the save button to save the record
 var saveBtn = myForm.querySelector('#input-form  #create-mode-flow  .saveBtn');
@@ -93,6 +94,9 @@ table.addEventListener('click',function(e){
         myForm.age.value = ageOfExisRec;
         myForm.occupation.value = occOfExisRec;
 
+        myForm.classList.toggle('edit-mode'); //turn on
+        myForm.classList.toggle('create-mode'); //turn off
+
     }
     e.preventDefault();
     
@@ -163,6 +167,9 @@ updateBtn.addEventListener('click',function(e){
     // reset the form
     myForm.reset();
 
+    myForm.classList.toggle('edit-mode'); //turn off
+    myForm.classList.toggle('create-mode'); //turn on
+
     e.preventDefault();
 })
 
@@ -174,6 +181,9 @@ cancelEditBtn.addEventListener('click',function(e){
 
     // reset the form
     myForm.reset();
+
+    myForm.classList.toggle('edit-mode'); //turn off
+    myForm.classList.toggle('create-mode'); //turn on
 
     e.preventDefault();
 })

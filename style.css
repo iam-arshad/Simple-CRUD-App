@@ -1,0 +1,100 @@
+/* in create mode(normal mode) hide the update,cancel buttons */
+.create-mode #edit-mode-flow
+{
+    display: none;
+}
+
+/* In edit mode, hide the save button */
+.edit-mode #create-mode-flow
+{
+    display: none;
+}
+
+
+
+
+form
+{
+    border: 2px solid #12395b;
+    width: 90%;
+    margin: auto;
+}
+
+/* make section tags inline to align buttons in one line */
+form div
+{
+    width: 20%;
+    display: inline-block;
+}
+
+
+form input
+{
+    width: 20%;
+    height: 5vh;
+    margin: 2.5% 2%;
+}
+
+.saveBtn, .updateBtn, .cancelEditBtn
+{
+    height: 5vh;
+    color: white;
+    border-radius: 5%;
+    display: inline;
+}
+
+.saveBtn
+{
+    width: 30%;
+    background-color: #12395b;
+}
+
+.updateBtn
+{
+    width: 30%;
+    background-color: #009578;
+    margin: 3% 2%;
+}
+
+.cancelEditBtn
+{
+    width: 30%;
+    background-color: tomato;
+    margin: 3% 2%;
+}
+
+
+
+
+
+table,tr,th,td
+{
+    border-collapse: collapse;
+}
+
+table
+{
+    width: 90%;
+    margin: 2% auto;
+    border:2px solid #12395b;
+}
+
+thead
+{
+    background-color: #12395b;
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+}
+
+tr
+{
+    height: 5vh;
+    text-align: center;
+}
+
+tr:nth-child(even)
+{
+    background-color: #eeeeee;
+}

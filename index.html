@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD App</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!--
@@ -13,18 +14,18 @@
         edit-mode(In this we will hide the section with id="create-mode-flow")By default it will be toggled from js
      -->
     <form id="input-form" class="create-mode edit-mode">
-        <input type="text" name="name" value="Arshad">
-        <input type="text" name="age" value="22">
-        <input type="text" name="occupation" value="Developer">
+        <input type="text" name="name" placeholder="Name">
+        <input type="number" name="age" placeholder="Age">
+        <input type="text" name="occupation" placeholder="Occupation">
 
-        <section id="create-mode-flow">
+        <div id="create-mode-flow">
             <button type="submit" class="saveBtn">Save</button>
-        </section>
+        </div>
 
-        <section id="edit-mode-flow">
+        <div id="edit-mode-flow">
             <button type="submit" class="updateBtn">Update</button>
             <button type="reset" class="cancelEditBtn">Cancel</button>
-        </section>
+        </div>
     </form>
 
     <!-- table to display the records -->
