@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD App</title>
+</head>
+<body>
+    <!--
+        by default we have 2 classes to the form
+        create-mode(In this we will hide the section with id="edit-mode-flow"),
+        edit-mode(In this we will hide the section with id="create-mode-flow")By default it will be toggled from js
+     -->
+    <form id="input-form" class="create-mode edit-mode">
+        <input type="text" name="name" value="Arshad">
+        <input type="text" name="age" value="22">
+        <input type="text" name="occupation" value="Developer">
+
+        <section id="create-mode-flow">
+            <button type="submit" class="saveBtn">Save</button>
+        </section>
+
+        <section id="edit-mode-flow">
+            <button type="submit">Update</button>
+            <button type="reset">Cancel</button>
+        </section>
+    </form>
+
+    <!-- table to display the records -->
+    <table>
+        <thead>
+            <tr>
+                <th>Serial No</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Occupation</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- rows will be inserted dynamically from javascript using DOM -->
+        </tbody>
+    </table>
+</body>
+<script src="script.js"></script>
+</html>
