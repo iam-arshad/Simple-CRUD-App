@@ -32,10 +32,11 @@
     <table>
         <thead>
             <tr>
-                <th>Serial No</th>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Occupation</th>
+                <!-- added 3 custom attributes to each column for sorting -->
+                <th data-type-of-column="number" data-prop-name-in-js="sNo" data-last-sorted-type="none">Serial No</th>
+                <th data-type-of-column="String" data-prop-name-in-js="name" data-last-sorted-type="none">Name</th>
+                <th data-type-of-column="number" data-prop-name-in-js="age" data-last-sorted-type="none">Age</th>
+                <th data-type-of-column="String" data-prop-name-in-js="occ" data-last-sorted-type="none">Occupation</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>

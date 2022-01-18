@@ -187,3 +187,87 @@ cancelEditBtn.addEventListener('click',function(e){
 
     e.preventDefault();
 })
+
+
+// sorting rows by columns
+/*
+if(typeOf(column) ==string)
+{
+    if(previouslySorted == none||asc) { sort in desc }
+    else{ sort in asc}
+}
+//(typeOf(column) ==number)
+else
+{
+    if(previouslySorted == none||asc) { sort in desc }
+    else{ sort in asc}
+}
+*/
+allColumnNames = document.querySelectorAll('th');
+Array.from(allColumnNames);
+allColumnNames.forEach(function(eachColumnName,index){
+    eachColumnName.addEventListener('click',(e)=>
+    {
+        columnClicked = e.target;
+        columnType = columnClicked.getAttribute('data-type-of-column');
+        columnNameInScript = columnClicked.getAttribute('data-prop-name-in-js');
+        lastSortedType = columnClicked.getAttribute('data-last-sorted-type');
+
+        //set "columnClicked.setAttribute('data-last-sorted-type','none');" for the remaining(previous) columns
+        for(let i=0; i<allColumnNames.length; i++)
+        {
+            if(i== index){continue};
+            allColumnNames[i].setAttribute('data-last-sorted-type','none'); 
+        }
+
+        if(columnType == 'String')
+        {
+            // sort in desc order
+            if( (lastSortedType == 'none') || (lastSortedType == 'asc') )
+            {
+                data.sort(function(a,b){
+                    x = a[columnNameInScript].toLowerCase();
+                    y = b[columnNameInScript].toLowerCase();
+                    if (x > y) {return -1;}
+                    if (x < y) {return 1;}
+                    return 0;    
+                });
+                displayRecords();
+                columnClicked.setAttribute('data-last-sorted-type','des');
+            }  
+            // sort in asc order    
+            else
+            {
+                data.sort(function(a,b){
+                    x = a[columnNameInScript].toLowerCase();
+                    y = b[columnNameInScript].toLowerCase();
+                    if (x < y) {return -1;}
+                    if (x > y) {return 1;}
+                    return 0;
+                });
+                displayRecords();
+                columnClicked.setAttribute('data-last-sorted-type','asc');
+            }
+        }
+        // if columnType == 'number'
+        else
+        {
+            // sort in desc order
+            if((lastSortedType == 'none') || (lastSortedType == 'asc') )
+            {
+                data.sort((a,b)=> b[columnNameInScript] - a[columnNameInScript] );
+                displayRecords();
+                columnClicked.setAttribute('data-last-sorted-type','des');
+            }
+            // sort in asc order
+            else
+            {
+                data.sort((a,b)=> a[columnNameInScript]-b[columnNameInScript]);
+                displayRecords();
+                columnClicked.setAttribute('data-last-sorted-type','asc');
+            }
+        }
+        e.preventDefault();
+    })
+});
+

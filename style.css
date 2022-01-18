@@ -88,6 +88,17 @@ thead
     text-align: center;
 }
 
+/* add sort symbol based on the value of attribute "data-last-sorted-type"  */
+thead tr th[data-last-sorted-type='des']::after
+{
+    content: " 🔽";
+}
+
+thead tr th[data-last-sorted-type='asc']::after
+{
+    content: " 🔼";
+}
+
 tr
 {
     height: 5vh;
