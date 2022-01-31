@@ -29,12 +29,12 @@ saveBtn.addEventListener('click',function(e){
 
 // ************************************Dynamically create a record(tr) with columns(td) to display in the table using ****************************
 var tBody = document.querySelector('tbody');
-function displayRecords()
+function displayRecords(d=data)
 {
     //remove the previous table body
     tBody.innerHTML='';
 
-    data.forEach((eachRecord)=>
+    d.forEach((eachRecord)=>
     {
         // create DOM node for the table record
         let row = document.createElement('tr');
@@ -271,3 +271,38 @@ allColumnNames.forEach(function(eachColumnName,index){
     })
 });
 
+
+//search filter
+var searchBox = document.querySelector('#searchBox');
+searchBox.addEventListener('keyup',(e)=>{
+    let searchedText = searchBox.value;
+    let searchedTextLowerCase = searchedText.toLowerCase();
+    // array to store the records of matched search results
+    var filteredData=[];
+    
+    // if searchedText is not empty
+    if(searchedText!=='')
+    {
+        // search each record in the data array for the searched text
+        data.forEach((eachRecord)=>{
+        eachRecValuesInArray = Object.values(eachRecord);  //array of values of an obj(rec)
+        eachRecValuesInArray.shift(); //remove 1st property 'SNo' as the toLowerCase() doesnt work on number type
+        eachRecValuesInArray = eachRecValuesInArray.map((item)=> item.toLowerCase()); //convert the array items to lowercase
+        //loop through each item of the recArray
+        for(let i=0;i< eachRecValuesInArray.length;i++)
+        {
+            if( (eachRecValuesInArray[i].indexOf(searchedTextLowerCase))> -1 )
+            {
+                filteredData.push(eachRecord);
+                //skip to the next record of forEach() if searched result found
+                break;
+            }
+        }
+    })
+    displayRecords(filteredData);
+    }
+    else
+    {
+        displayRecords();
+    }
+})
